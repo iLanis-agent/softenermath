@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Softener Math - app</title>
+<style>
+  :root { --accent:#31597f; --ink:#1c2430; --paper:#f5f7fa; --soft:#e9eef4; }
+  * { box-sizing:border-box; margin:0; }
+  body { font-family:Georgia, 'Times New Roman', serif; background:var(--paper); color:var(--ink); line-height:1.55; padding:2rem 1.2rem; }
+  main { max-width:660px; margin:0 auto; }
+  h1 { font-size:1.8rem; color:var(--accent); }
+  .boundary { background:#fdeaea; border-left:6px solid #b03030; color:#5c1c1c; border-radius:6px; padding:1rem 1.1rem; margin:1rem 0 1.4rem; }
+  .boundary strong { display:block; margin-bottom:.3rem; }
+  .panel { background:var(--soft); border-left:5px solid var(--accent); border-radius:6px; padding:1rem 1.1rem; margin-bottom:1.1rem; }
+  h2 { font-size:1.1rem; margin-bottom:.6rem; }
+  label { display:block; font-size:.9rem; margin:.45rem 0 .1rem; }
+  input { width:100%; padding:.45rem .55rem; font-size:1rem; border:1px solid #b6c2d0; border-radius:6px; background:#fff; color:var(--ink); }
+  .out { margin-top:.7rem; font-size:.98rem; background:#fff; border:1px dashed #b6c2d0; border-radius:6px; padding:.6rem .7rem; min-height:2.4rem; }
+  .out.err { border-color:#b03030; color:#8a1f1f; font-style:normal; }
+  footer { margin-top:1.8rem; font-size:.85rem; color:#5d6a7a; }
+  a { color:var(--accent); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Softener Math</h1>
+  <div class="boundary">
+    <strong>Boundary: illustrative arithmetic only</strong>
+    Hardness bands, the 75-gallon person-day, the two-thirds efficient dose and the ppm conversion here are labeled norms, not measurements of your water, your resin or your household. Test your water with a real kit, follow the maker's capacity and salt charts over anything this page says, and ask a water professional about your plumbing.
+  </div>
+
+  <div class="panel">
+    <h2>The hardness truth</h2>
+    <label for="h-gpg">Hardness (grains per gallon)</label>
+    <input id="h-gpg" type="number" min="0" step="0.1" value="10">
+    <div class="out" id="h-out"></div>
+  </div>
+
+  <div class="panel">
+    <h2>The capacity truth</h2>
+    <label for="c-rated">Rated grains on the sticker</label>
+    <input id="c-rated" type="number" min="0" step="1000" value="32000">
+    <label for="c-people">People in the household</label>
+    <input id="c-people" type="number" min="0" step="1" value="4">
+    <label for="c-gpg">Hardness (grains per gallon)</label>
+    <input id="c-gpg" type="number" min="0" step="0.1" value="10">
+    <div class="out" id="c-out"></div>
+  </div>
+
+  <div class="panel">
+    <h2>The salt truth</h2>
+    <label for="s-lbs">Salt per regeneration (pounds)</label>
+    <input id="s-lbs" type="number" min="0" step="1" value="12">
+    <label for="s-days">Days between regenerations</label>
+    <input id="s-days" type="number" min="0" step="0.1" value="10.7">
+    <div class="out" id="s-out"></div>
+  </div>
+
+  <footer>Softener Math keeps arithmetic on labeled norms only. <a href="index.html">Why it exists</a>.</footer>
+</main>
+<script src="engine.js"></script>
+<script>
+  const num = (id) => Number(document.getElementById(id).value);
+  function show(out, fn) {
+    try {
+      const text = fn();
+      out.textContent = text;
+      out.classList.remove("err");
+    } catch (e) {
+      out.textContent = e.message;
+      out.classList.add("err");
+    }
+  }
+  const hOut = document.getElementById("h-out");
+  const cOut = document.getElementById("c-out");
+  const sOut = document.getElementById("s-out");
+  function recalc() {
+    show(hOut, () => hardTruth(num("h-gpg")));
+    show(cOut, () => capTruth(num("c-rated"), num("c-people"), num("c-gpg")));
+    show(sOut, () => saltTruth(num("s-lbs"), num("s-days")));
+  }
+  document.querySelectorAll("input").forEach((el) => {
+    el.addEventListener("input", recalc);
+    el.addEventListener("change", recalc);
+  });
+  recalc();
+</script>
+</body>
+</html>
