@@ -1,0 +1,232 @@
+[
+ {
+  "fn": "hardTruth",
+  "args": [
+   10
+  ],
+  "out": "10 grains per gallon reads hard honestly - 171.0 ppm."
+ },
+ {
+  "fn": "hardTruth",
+  "args": [
+   0.5
+  ],
+  "out": "0.5 grains per gallon reads soft honestly - 8.6 ppm."
+ },
+ {
+  "fn": "hardTruth",
+  "args": [
+   2
+  ],
+  "out": "2 grains per gallon reads slightly hard honestly - 34.2 ppm."
+ },
+ {
+  "fn": "hardTruth",
+  "args": [
+   5
+  ],
+  "out": "5 grains per gallon reads moderately hard honestly - 85.5 ppm."
+ },
+ {
+  "fn": "hardTruth",
+  "args": [
+   12
+  ],
+  "out": "12 grains per gallon reads very hard honestly - 205.2 ppm."
+ },
+ {
+  "fn": "hardTruth",
+  "args": [
+   3.5
+  ],
+  "out": "3.5 grains per gallon reads moderately hard honestly - 59.9 ppm."
+ },
+ {
+  "fn": "hardTruth",
+  "args": [
+   1
+  ],
+  "out": "1 grain per gallon reads slightly hard honestly - 17.1 ppm."
+ },
+ {
+  "fn": "hardTruth",
+  "args": [
+   7
+  ],
+  "out": "7 grains per gallon reads hard honestly - 119.7 ppm."
+ },
+ {
+  "fn": "hardTruth",
+  "args": [
+   10.5
+  ],
+  "out": "10.5 grains per gallon reads very hard honestly - 179.6 ppm."
+ },
+ {
+  "fn": "hardTruth",
+  "args": [
+   0
+  ],
+  "err": "the hardness must be above zero"
+ },
+ {
+  "fn": "hardTruth",
+  "args": [
+   -3
+  ],
+  "err": "the hardness must be above zero"
+ },
+ {
+  "fn": "capTruth",
+  "args": [
+   32000,
+   4,
+   10
+  ],
+  "out": "A 32000-grain rating against 4 people on 10-grain water regenerates every 10.7 days at the label and every 7.1 days at the efficient dose honestly."
+ },
+ {
+  "fn": "capTruth",
+  "args": [
+   24000,
+   2,
+   7
+  ],
+  "out": "A 24000-grain rating against 2 people on 7-grain water regenerates every 22.9 days at the label and every 15.2 days at the efficient dose honestly."
+ },
+ {
+  "fn": "capTruth",
+  "args": [
+   48000,
+   6,
+   15
+  ],
+  "out": "A 48000-grain rating against 6 people on 15-grain water regenerates every 7.1 days at the label and every 4.7 days at the efficient dose honestly."
+ },
+ {
+  "fn": "capTruth",
+  "args": [
+   32000,
+   1,
+   10
+  ],
+  "out": "A 32000-grain rating against 1 person on 10-grain water regenerates every 42.7 days at the label and every 28.4 days at the efficient dose honestly."
+ },
+ {
+  "fn": "capTruth",
+  "args": [
+   20000,
+   3,
+   25
+  ],
+  "out": "A 20000-grain rating against 3 people on 25-grain water regenerates every 3.6 days at the label and every 2.4 days at the efficient dose honestly."
+ },
+ {
+  "fn": "capTruth",
+  "args": [
+   32000,
+   2.5,
+   10
+  ],
+  "out": "A 32000-grain rating against 2.5 people on 10-grain water regenerates every 17.1 days at the label and every 11.4 days at the efficient dose honestly."
+ },
+ {
+  "fn": "capTruth",
+  "args": [
+   0,
+   4,
+   10
+  ],
+  "err": "the grain rating must be above zero"
+ },
+ {
+  "fn": "capTruth",
+  "args": [
+   32000,
+   0,
+   10
+  ],
+  "err": "the people must be above zero"
+ },
+ {
+  "fn": "capTruth",
+  "args": [
+   32000,
+   4,
+   0
+  ],
+  "err": "the hardness must be above zero"
+ },
+ {
+  "fn": "saltTruth",
+  "args": [
+   12,
+   10.7
+  ],
+  "out": "12 pounds per regeneration 2.8 times a month uses 33.6 pounds - 0.8 bags of 40 honestly."
+ },
+ {
+  "fn": "saltTruth",
+  "args": [
+   6,
+   7.1
+  ],
+  "out": "6 pounds per regeneration 4.2 times a month uses 25.2 pounds - 0.6 bags of 40 honestly."
+ },
+ {
+  "fn": "saltTruth",
+  "args": [
+   15,
+   4.7
+  ],
+  "out": "15 pounds per regeneration 6.4 times a month uses 96.0 pounds - 2.4 bags of 40 honestly."
+ },
+ {
+  "fn": "saltTruth",
+  "args": [
+   9,
+   14
+  ],
+  "out": "9 pounds per regeneration 2.1 times a month uses 18.9 pounds - 0.5 bags of 40 honestly."
+ },
+ {
+  "fn": "saltTruth",
+  "args": [
+   20,
+   3
+  ],
+  "out": "20 pounds per regeneration 10.0 times a month uses 200.0 pounds - 5.0 bags of 40 honestly."
+ },
+ {
+  "fn": "saltTruth",
+  "args": [
+   1,
+   30
+  ],
+  "out": "1 pound per regeneration once a month uses 1.0 pound - a fraction of one 40-pound bag honestly."
+ },
+ {
+  "fn": "saltTruth",
+  "args": [
+   40,
+   30
+  ],
+  "out": "40 pounds per regeneration once a month uses 40.0 pounds - 1.0 bag of 40 honestly."
+ },
+ {
+  "fn": "saltTruth",
+  "args": [
+   0,
+   10
+  ],
+  "err": "the salt per regeneration must be above zero"
+ },
+ {
+  "fn": "saltTruth",
+  "args": [
+   12,
+   -2
+  ],
+  "err": "the days between regenerations must be above zero"
+ }
+]
